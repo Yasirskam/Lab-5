@@ -1,15 +1,15 @@
-импорт ре
- строка импорта
-частота  = {}
-document_text  =  open ( 'tom_sawyer.txt' , 'r' )
-text_string  =  document_text . читать (). ниже ()
-match_pattern  =  re . findall ( r '\ b [az] {3,15} \ b' , текстовая_строка )
+import re
+import string
+frequency = {}
+document_text = open('tom_sawyer.txt', 'r')
+text_string = document_text.read().lower()
+match_pattern = re.findall(r'\b[a-z]{3,15}\b', text_string)
 
-для  слова  в  match_pattern :
-    count  =  частота . получить ( слово , 0 )
-    частота [ слово ] =  количество  +  1
+for word in match_pattern:
+    count = frequency.get(word,0)
+    frequency[word] = count + 1
     
-frequency_list  =  частота . ключи ()
+frequency_list = frequency.keys()
 
-для слов  в  списке frequency_list :
-    печать ( слова , частота [ слова ])
+for words in frequency_list:
+    print (words, frequency[words])
